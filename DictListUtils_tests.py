@@ -1,8 +1,8 @@
 # -*- coding: UTF-8 -*-
 #-------------------------------------------------------------------------------
-# Name:        world_pop_explorer_tests.py
+# Name:        exercise_template_tests.py
 #
-# Purpose:     Test functions for functions in world_pop_explorer.py
+# Purpose:     Test functions for functions in exercise_template.py
 #
 # Author:      David Viljoen
 #
@@ -11,8 +11,15 @@
 
 import sys
 import inspect
-import world_pop_explorer as wpe
-reload(wpe)
+import DictListUtils as DLU
+reload (DLU)
+
+# Add import statement for the module under test as follows:
+# import module_under_test as alias
+
+# For example:
+# import world_pop_explorer as wpe
+# reload(wpe)
 
 def main():
     # Find and call all functions that begin with "test"
@@ -35,43 +42,13 @@ def template_for_test_functions():
 
 # ------------------------------------------------------------------------------
 
-def test_get_country_count():
-    desc = "Get country count from population list"
-    expected = 233
-    actual = wpe.get_country_count()
-    print_test_results(wpe.get_country_count, desc, expected, actual)
-
-def test_conv_num_with_commas():
-    desc = "Test for conversion of text 1,000 to number 1000"
-    expected = 1000
-    actual = wpe.conv_num_with_commas()
-    print_test_results(wpe.conv_num_with_commas, desc, expected, actual)
-
-def test_get_top_five_countries():
-    desc = "Test for top five countries where China is 1st and Brazil 5th "
-    expected ="China, India, USA, Indonesia, Brazil"
-    actual = wpe.get_top_five_countries()
-    print_test_results(wpe.get_top_five_countries, desc, expected, actual)
-    pass
-def test_set_country_populations_dict():
-    desc = "Test for the country Réunion"
-    pass
-
-def test_get_population():
-    desc = "Test for the country Réunion"
-    pass
-
-def test_get_continents():
-    desc = "Test for number of continents"
-    pass
-
-def test_get_continent_populations():
-    desc = "Test for population of Asia being larger than 4.5B"
-    pass
+# Create test functions here using the template_for_test_functions above.
+# The name of the test functions needs to begin with "test"
 
 # ------------------------------------------------------------------------------
-# Testing helper functions
-# ------------------------------------------------------------------------------
+# Test template helper functions.  Code in this section should not need to
+# modified.
+#
 def get_test_functions():
     """Returns a list of functions that begin with the word test in the order
        they appear in this file."""
@@ -98,6 +75,14 @@ def get_test_functions():
         index = ordered_func_names[test_func.__name__]
         ordered_funcs[index] = test_func
     return ordered_funcs
+
+def test_getMissingKeys():
+    desc = "Test for missing keys."
+    dictRef = {1:1, 2:2, 3:3}
+    dictToCompare = {2:2}
+    expected = [1, 3]
+    actual = DLU.getMissingKeys()
+    print_test_results(DLU.getMissingKeys, desc, expected, actual)
 
 def print_test_results(func_tested, desc, expected, actual):
     """func_tested is the function being tested

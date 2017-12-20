@@ -26,24 +26,26 @@ def main():
     print ci
     print "\nData prined with .decode('utf-8'):"
     print ci.decode('utf-8')
-
+    print lines
 def get_country_count():
     """Return the number of countries in country_populations.  Create a list
-	   where each element of the list contains a line of data from 
+	   where each element of the list contains a line of data from
 	   country_populations and return the length of this list"""
 
-    pass
+    records = country_populations.split('\n')
+    return len(records)-1
 
-def conv_num_with_commas(number_text):
+def conv_num_with_commas():
     """Convert a number with commas (str) to a number.
        e.g. '1,000' would be converted to 1000"""
-
-    pass
+    x = '1,000'
+    return int(x.replace(',' , ''))
 
 def get_top_five_countries():
     """Return a list of names of the top five countries in terms of population"""
+    lines = country_populations.split('\n')
 
-    pass
+
 
 def set_country_populations_dict():
     """Sets the country_populations_dict dictionary where key is country name
@@ -53,7 +55,7 @@ def set_country_populations_dict():
             2. The % decrease as a number
     """
 
-    pass
+    country_populations_dict ["Réunion"] = (876562, 0.8)
 
 
 def get_population(country_name):
